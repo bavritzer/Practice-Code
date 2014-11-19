@@ -21,7 +21,7 @@ void setup() {
   noStroke();
 }
 void draw() {
-  fill(x%360, 100, 100, 100);
+  fill(frameCount%360, 100, 100, 100);
   
   translate(pos.x, pos.y, pos.z);
  sphere(20);
