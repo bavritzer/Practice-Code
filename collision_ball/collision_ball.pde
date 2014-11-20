@@ -26,9 +26,17 @@ void draw() {
     ellipse(loc[i].x, loc[i].y, sz, sz);
     if (loc[i].x+sz/2>=width || loc[i].x-sz/2<=0) {
       vel[i].x*=-1;
+      if(loc[i].x+sz/2>width){
+      loc[i].x=width;}
+      if(loc[i].x-sz/2<0){
+      loc[i].x=0;}
     }
     if (loc[i].y+sz/2>=height || loc[i].y-sz/2<=0) {
       vel[i].y*=-1;
+      if(loc[i].y+sz/2>height){
+      loc[i].y=height;}
+      if(loc[i].y-sz/2<0){
+      loc[i].y=0;}
     }
     if (dist(mouseX, mouseY, loc[i].x, loc[i].y)<sz/2) {
       col[i]=color(0, 255, 0);
@@ -42,7 +50,6 @@ void draw() {
           accd[i].sub(loc[k]);
           accd[i].normalize();
           accd[i].mult(force);
-          
           acc[i].add(accd[i]);
           
         }
