@@ -1,10 +1,11 @@
-PVector loc[]= new PVector[20];
-PVector vel[]=new PVector[20];
-PVector acc[]=new PVector[20];
+int numballs=20;
+PVector loc[]= new PVector[numballs];
+PVector vel[]=new PVector[numballs];
+PVector acc[]=new PVector[numballs];
 int sz=40;
-color col[]= new color[20];
-PVector velc[]= new PVector[20];
-PVector accd[]= new PVector[20];
+color col[]= new color[numballs];
+PVector velc[]= new PVector[numballs];
+PVector accd[]= new PVector[numballs];
 void setup() {
   size(displayWidth, displayHeight);
   for (int i=0; i<loc.length; i++  ) {
@@ -33,11 +34,12 @@ void draw() {
     if (dist(mouseX, mouseY, loc[i].x, loc[i].y)<sz/2) {
       col[i]=color(0, 255, 0);
     } else col[i]=color(255, 255, 255);
+   acc[i].set(0,0);
     for (int q=0; q<loc.length; q++) {
       for (int k=0; k<loc.length; k++) {
         if (!(i==k)) {
-         
-          float force = 1/sq(loc[i].dist(loc[k]));
+         accd[i].set(0,0);
+          float force = 100/sq(loc[i].dist(loc[k]));
           accd[i].add(loc[i]);
           accd[i].sub(loc[k]);
           accd[i].normalize();
