@@ -39,7 +39,7 @@ void draw() {
       for (int k=0; k<loc.length; k++) {
         if (!(i==k)) {
          accd[i].set(0,0);
-          float force = 100/sq(loc[i].dist(loc[k]));
+          float force = (2000/numballs)/sq(loc[i].dist(loc[k]));
           accd[i].add(loc[i]);
           accd[i].sub(loc[k]);
           accd[i].normalize();
