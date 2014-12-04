@@ -27,14 +27,18 @@ void draw() {
     ellipse(loc[i].x, loc[i].y, sz, sz);
     if (loc[i].x+sz/2>=width ) {
       vel[i].x=-abs(vel[i].x);
+      loc[i].x=width-sz/2;
     }
     if( loc[i].x-sz/2<=0){
-    vel[i].x=abs(vel[i].x);}
+    vel[i].x=abs(vel[i].x);
+  loc[i].x=sz/2;}
     if (loc[i].y+sz/2>=height) {
       vel[i].y=-abs(vel[i].y);
+      loc[i].y=height-sz/2;
     }
     if(loc[i].y-sz/2<=0){
-    vel[i].y=abs(vel[i].y);}
+    vel[i].y=abs(vel[i].y);
+  loc[i].y=sz/2;}
     if (dist(mouseX, mouseY, loc[i].x, loc[i].y)<sz/2) {
       col[i]=color(0, 255, 0);
     } else col[i]=color(255, 255, 255);
