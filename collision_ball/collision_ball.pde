@@ -1,4 +1,4 @@
-int numballs=20;
+int numballs=20; 
 PVector loc[]= new PVector[numballs];
 PVector vel[]=new PVector[numballs];
 PVector acc[]=new PVector[numballs];
@@ -25,12 +25,16 @@ void draw() {
     vel[i].add(acc[i]);
     loc[i].add(vel[i]);
     ellipse(loc[i].x, loc[i].y, sz, sz);
-    if (loc[i].x+sz/2>=width || loc[i].x-sz/2<=0) {
-      vel[i].x*=-1;
+    if (loc[i].x+sz/2>=width ) {
+      vel[i].x=-abs(vel[i].x);
     }
-    if (loc[i].y+sz/2>=height || loc[i].y-sz/2<=0) {
-      vel[i].y*=-1;
+    if( loc[i].x-sz/2<=0){
+    vel[i].x=abs(vel[i].x);}
+    if (loc[i].y+sz/2>=height) {
+      vel[i].y=-abs(vel[i].y);
     }
+    if(loc[i].y-sz/2<=0){
+    vel[i].y=abs(vel[i].y);}
     if (dist(mouseX, mouseY, loc[i].x, loc[i].y)<sz/2) {
       col[i]=color(0, 255, 0);
     } else col[i]=color(255, 255, 255);
