@@ -1,22 +1,4 @@
-Ball[] Liang= new Ball[100];
 
-void setup() {
-  size(displayWidth, displayHeight);
-  for(int i=0; i<Liang.length; i++){
-  Liang[i]=new Ball(random(0,100), random(0,20), color(random(255), random(255), random(255)));}
-}
-void draw() {
-  background(255);
-  for (int i=0; i<Liang.length; i++) {
-    Liang[i].make();
-    Liang[i].bwall();
-    for (int j=0; j<Liang.length; j++) {
-      if (j!=i) {
-        Liang[i].collide(Liang[j]);
-      }
-    }
-  }
-}
 
 
 class Ball {
@@ -51,5 +33,8 @@ fill(tempc);
     vel=PVector.sub(loc,tempball.loc);
   vel.setMag(speed);}
   }
+  void suckedin(Blackhole die){
+  acc=PVector.sub(tempball.loc, die.loc);
+acc.setMag(.05);}
 }
 
