@@ -1,4 +1,4 @@
-class Central {
+class Central  {
   PVector loc, vel, acc;
   float sz;
   Central(float tempx,float tempy) {
@@ -8,4 +8,6 @@ class Central {
   void make(){
     ellipse(loc.x, loc.y, sz, sz);
   }
+  
+
 }

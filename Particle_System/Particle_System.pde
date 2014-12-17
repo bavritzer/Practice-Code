@@ -1,26 +1,33 @@
 ArrayList <Central> centers = new ArrayList <Central>() ;
 ArrayList <Orbiter> orbiters = new ArrayList <Orbiter>();
+float fc=0;
 
 void setup() {
   size(displayWidth, displayHeight);
-  centers.add(new Central(displayWidth/6, displayHeight/2));
-  centers.add(new Central(5*displayWidth/6, displayHeight/2));
+  centers.add(new Central(2*displayWidth/5, displayHeight/2));
+  centers.add(new Central(3*displayWidth/5, displayHeight/2));
 }
 
 
 void draw() {
   background(0);
-  if (mousePressed) {
+  if (mousePressed && frameCount-fc>=30) {
+   
     orbiters.add(new Orbiter());
+    fc=frameCount;
   }
   for (int j=0; j<orbiters.size (); j++) {
     Orbiter orber= orbiters.get(j);
-    orber.make();
+    fill(255,0,0);
+    if(orber.die){
+    orbiters.remove(orber);} else{orber.make();}
+   // orber.bwall();
     for (int i=0; i<centers.size (); i++) {
       Central currcent= centers.get(i);
+      fill(0,255,0);
       currcent.make();
       orber.isattractedto(currcent);
-      if(dist(currcent.loc.x, orber.loc.x, currcent.loc.y, orber.loc.y)<orber.sz/2+currcent.sz/2){
+      if(dist(currcent.loc.x, currcent.loc.y, orber.loc.x,  orber.loc.y)<orber.sz/2+currcent.sz/2){
       orber.hits(currcent);}
     }
     for (int k=0; k<orbiters.size(); k++ ) {
