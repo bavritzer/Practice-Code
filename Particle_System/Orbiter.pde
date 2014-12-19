@@ -56,4 +56,3 @@ sz+=temporb.sz/3;}} //grows after hitting
   }
 
 }
-
