@@ -47,7 +47,7 @@ void draw() {
         orber.make(); //if it dies, don't make it; if not, make it
       }
       
-      // orber.bwall(); //decided it works better without wall bounce but option exists
+      
       for (int i=centers.size()-1; i>=0; i--) {
         Central currcent= centers.get(i); //loops through all centrals
         fill(0, 255, 0);
