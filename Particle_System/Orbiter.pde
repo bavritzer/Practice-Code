@@ -44,15 +44,6 @@ sz+=temporb.sz/3;}} //grows after hitting
   
     die=true; //if it hits a ship, the orbiter dies
   }
- void bwall() {
-    if (loc.x + sz/2 > width || loc.x - sz/2 < 0) {
-      vel.x *= -1;
-  
-    } 
-    if (loc.y + sz/2 > height || loc.y - sz/2 < 0) {
-      vel.y *= -1;
-    
-    } //wall bounce mechanism (copied from another project, decided to cut it out)
-  }
+
 
 }
