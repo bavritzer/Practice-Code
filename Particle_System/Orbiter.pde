@@ -20,13 +20,13 @@ class Orbiter  {
   }
   void isattractedto(Central tempcent) { //gravitational attraction to central body
     acc1=PVector.sub(tempcent.loc, loc);
-    acc1.setMag(.005*mass/pow((dist(loc.x, loc.y, tempcent.loc.x, tempcent.loc.y)),.5));
+    acc1.setMag(.005*mass/pow((dist(loc.x, loc.y, tempcent.loc.x, tempcent.loc.y)),.5)); //note that mass is only added to keep orbiters from going offscreen as easily; in real life mass does not affect a. Remove mass from expression for more realistic orbits.
   acc.add(acc1); //adds gravitational acceleration from each central body
 }
 
   void isattractedto(Orbiter temporb) { //gravitational attraction between orbiters; optional
     acc2=PVector.sub(temporb.loc, loc);
-    acc2.setMag(.000009*mass/pow((dist(loc.x, loc.y, temporb.loc.x, temporb.loc.y)),.5));
+    acc2.setMag(.000009*mass/pow((dist(loc.x, loc.y, temporb.loc.x, temporb.loc.y)),.5)); //note that mass is only added to keep orbiters from going offscreen as easily; in real life mass does not affect a. Remove mass from expression for more realistic orbits.
   acc.add(acc2);} //adds gravitational acceleration from each orbital
   void hits(Orbiter temporb) {
   if(temporb.sz>sz){
